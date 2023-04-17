@@ -34,4 +34,6 @@ Route::get('/', function () {
     die();
  */
     return view('welcome');
+
+    
 });
