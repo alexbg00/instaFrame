@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    use HasFactory;
+    protected $table = 'likes';
+
+    public function image()
+    {
+        return $this->belongsTo('App\Models\Image');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
