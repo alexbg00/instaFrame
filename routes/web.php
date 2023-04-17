@@ -18,8 +18,20 @@ Route::get('/', function () {
     foreach($images as $image){
         echo $image->image_path."<br>";
         echo $image->description."<br>";
+        echo $image->user->name.' '.$image->user->surname."<br>";
+
+        echo "<h4>Comentarios</h4>";
+        foreach($image->comments as $comment){
+            echo $comment->user->name.' '.$comment->user->surname.': ';
+            echo $comment->content."<br>";
+        }
+
+        echo "<h4>Likes</h4>";
+        echo 'LIKE: '.count($image->likes);
+        echo "<br>";
+
     }
     die();
-    
+
     return view('welcome');
 });
